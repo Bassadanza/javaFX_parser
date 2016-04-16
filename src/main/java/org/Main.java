@@ -16,7 +16,7 @@ public class Main extends Application {
         MainStage = stage;
         MainStage.setTitle("Тестовый парсер");
 
-        settingsController.initSettingsStage();
+        settingsController.initSettingsScene();
     }
 
     public static Stage getMainStage() {

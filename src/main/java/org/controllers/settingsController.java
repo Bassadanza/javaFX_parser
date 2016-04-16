@@ -83,7 +83,7 @@ public class settingsController {
     }
 
 
-    public static void initSettingsStage() {
+    public static void initSettingsScene() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(settingsController.class.getClassLoader().getResource("view/settingsView.fxml"));

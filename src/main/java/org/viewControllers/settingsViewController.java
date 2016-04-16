@@ -2,6 +2,7 @@ package org.viewControllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import org.controllers.settingsController;
 
 public class settingsViewController {
@@ -25,52 +26,68 @@ public class settingsViewController {
     private Button chooseFile;
     @FXML
     private Button goNext;
+    @FXML
+    private Image image;
 
 //    private Stage settingStage;
 
     @FXML
-    private void initialize() {
-        settingsController.getSettings();
-        getSettings();
-    }
-
- //   public void setSettingStage(Stage settingStage) {
- //       this.settingStage = settingStage;
- //   }
-
-    private void getSettings() {
-        email.setSelected(settingsController.getEmail());
-        hostsBox.setItems(settingsController.getHosts());
-        loginField.setText(settingsController.getLoginField());
-        vk.setSelected(settingsController.getVk());
-        sms.setSelected(settingsController.getSms());
+    private void initialize() { //ЗАПОЛНИТЬ!!!//
     }
 
     @FXML
     private void choosingHostsBox() {
-        domainBox.setItems(settingsController.setDomainBox(hostsBox).getItems());
+        if(choosingHostsBoxListener != null)
+            choosingHostsBoxListener.onClick();
     }
+    public void setChoosingHostsBoxListener(OnClickedListener choosingHostsBoxListener){
+        this.choosingHostsBoxListener = choosingHostsBoxListener;
+    }
+    private OnClickedListener choosingHostsBoxListener = null;
 
     @FXML
     private void choosingDomainBox() {
-        try {
-            settingsController.setSmtpHost(domainBox.getValue());
-        } catch (Exception e) {
-        }
+        if (choosingDomainBoxListener != null)
+            choosingDomainBoxListener.onClick();
     }
-
-    @FXML
-    private void choosingFile() {
-        settingsController.choosingFile();
+    public void setChoosingDomainBoxListener(OnClickedListener choosingDomainBoxListener){
+        this.choosingDomainBoxListener = choosingDomainBoxListener;
     }
+    private OnClickedListener choosingDomainBoxListener = null;
 
     @FXML
     private void dndFileChoose(){
-
+        if (dndFileChooseListener !=null)
+            dndFileChooseListener.onClick();
     }
+    public void setDndFileChooseListener(OnClickedListener dndFileChooseListener){
+        this.dndFileChooseListener = dndFileChooseListener;
+    }
+    private OnClickedListener dndFileChooseListener = null;
+
+
+    @FXML
+    private void choosingFile() {
+        if(choosingFileListener !=null)
+            choosingFileListener.onClick();
+    }
+    public void setChoosingFileListener(OnClickedListener choosingFileListener){
+        this.choosingFileListener = choosingFileListener;
+    }
+    private OnClickedListener choosingFileListener = null;
+
 
     @FXML
     private void goNext() {
-        settingsController.setSettings(email.isSelected(),domainBox.getValue(),loginField.getText(),passwordField.getText(),vk.isSelected(),sms.isSelected());
+        if(goNextListener != null)
+            goNextListener.onClick();
+    }
+    public void setGoNextListener(OnClickedListener goNextListener){
+        this.goNextListener = goNextListener;
+    }
+    private OnClickedListener goNextListener = null;
+
+    public interface OnClickedListener{
+        void onClick();
     }
 }
