@@ -3,7 +3,6 @@ package org.viewControllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import org.controllers.settingsController;
 
 public class settingsViewController {
     @FXML
@@ -54,6 +53,16 @@ public class settingsViewController {
         this.choosingDomainBoxListener = choosingDomainBoxListener;
     }
     private OnClickedListener choosingDomainBoxListener = null;
+
+    @FXML
+    private void choosingVkAuth(){
+        if (choosingVkAuthListener != null)
+            choosingVkAuthListener.onClick();
+    }
+    public void setChoosingVkAuthListener(OnClickedListener choosingVkAuthListener){
+        this.choosingVkAuthListener = choosingVkAuthListener;
+    }
+    private OnClickedListener choosingVkAuthListener = null;
 
     @FXML
     private void dndFileChoose(){
