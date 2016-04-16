@@ -2,11 +2,7 @@ package org.viewControllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import org.Main;
 import org.controllers.settingsController;
-import java.io.File;
 
 public class settingsViewController {
     @FXML
@@ -30,7 +26,7 @@ public class settingsViewController {
     @FXML
     private Button goNext;
 
-    private Stage settingStage;
+//    private Stage settingStage;
 
     @FXML
     private void initialize() {
@@ -38,9 +34,9 @@ public class settingsViewController {
         getSettings();
     }
 
-    public void setSettingStage(Stage settingStage) {
-        this.settingStage = settingStage;
-    }
+ //   public void setSettingStage(Stage settingStage) {
+ //       this.settingStage = settingStage;
+ //   }
 
     private void getSettings() {
         email.setSelected(settingsController.getEmail());
@@ -65,11 +61,12 @@ public class settingsViewController {
 
     @FXML
     private void choosingFile() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));
-        fileChooser.setTitle("Open Resource File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Microsoft Excel Documents", "*.xlsx"));
-        fileChooser.showOpenDialog(Main.getSettingsStage());
+        settingsController.choosingFile();
+    }
+
+    @FXML
+    private void dndFileChoose(){
+
     }
 
     @FXML
