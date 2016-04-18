@@ -99,4 +99,41 @@ public class settingsViewController {
     public interface OnClickedListener{
         void onClick();
     }
+
+
+    public CheckBox getEmail() {
+        return email;
+    }
+    public ComboBox<String> getDomainBox() {
+        return domainBox;
+    }
+    public TextField getLoginField() {
+        return loginField;
+    }
+    public TextField getPasswordField() {
+        return passwordField;
+    }
+    public CheckBox getVk() {
+        return vk;
+    }
+    public CheckBox getSms() {
+        return sms;
+    }
+    public Button getChooseFile() {
+        return chooseFile;
+    }
+
+
+    public void setEmail(CheckBox email) {
+        this.email = email;
+    }
+    public void setVk(CheckBox vk) {
+        this.vk = vk;
+    }
+    public void setSms(CheckBox sms) {
+        this.sms = sms;
+    }
+    public void setLoginField(TextField loginField) {
+        this.loginField = loginField;
+    }
 }
